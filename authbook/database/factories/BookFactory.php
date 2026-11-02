@@ -10,13 +10,16 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            'isbn' => fake()->unique()->isbn13(),
-            'title' => fake()->sentence(3),
-            'author_id' => Author::factory(),
-            'publisher' => fake()->company(),
-            'year' => fake()->numberBetween(1950, 2024),
-            'status' => fake()->randomElement(['available', 'borrowed']),
-        ];
+    'isbn' => fake()->unique()->isbn13(),
+    'title' => fake()->sentence(3),
+
+    // Membuat deskripsi buku secara otomatis
+    'description' => fake()->paragraph(),
+
+    'author_id' => Author::factory(),
+    'publisher' => fake()->company(),
+    'year' => fake()->numberBetween(1950, 2024),
+    'status' => fake()->randomElement(['available', 'borrowed']),
+    ];
     }
 }
-
